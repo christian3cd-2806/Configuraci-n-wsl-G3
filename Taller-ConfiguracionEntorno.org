@@ -155,11 +155,11 @@ busque el archivo o escriba:Puede insertar una imagen con la sintaxis:
 Complete la siguiente tabla si tuvo errores durante la configuracion:
 
 #+ATTR_LATEX: :environment tabularx :width \textwidth :align lXX
-| *Herramienta* | *Problema observado*         | *Solucion aplicada*                                                                                                             |
-|---------------+------------------------------+---------------------------------------------------------------------------------------------------------------------------------|
+| *Herramienta*           | *Problema observado*         | *Solucion aplicada*                                                                                                             |
+|-------------------------+------------------------------+---------------------------------------------------------------------------------------------------------------------------------|
 | Emacs(Christian Cuaspa) | Ejecución de C-c C-c fallida | Ejecucion Eval expresion y luego introducir (org-babel-do-load-languages 'org-babel-load-languages '((shell . t) (python . t))) |
-|               |                              |                                                                                                                                 |
-|               |                              |                                                                                                                                 |
+|                         |                              |                                                                                                                                 |
+|                         |                              |                                                                                                                                 |
 
 ** Comandos Emacs Tutorial
 Seguir el tutorial integrado en Emacs al respecto de la navegación y
@@ -218,13 +218,15 @@ Estudiante A:
 |-----------+---------|
 | iteración | Puntaje |
 |-----------+---------|
-|         1 |         |
-|         2 |         |
-|         3 |         |
+|         1 |    136  |
+|         2 |    140  |
+|         3 |    140  |
 |-----------+---------|
 
 #+begin_src org
-[[./estudianteA-game.png]]
+[[./Captura de pantalla 2026-04-12 094801.png]]
+[[./Captura de pantalla 2026-04-12 095755.png]]
+[[./Captura de pantalla 2026-04-12 100136.png]]
 #+end_src
 
 [[./EmacsTrainerResult.png]]
@@ -267,6 +269,7 @@ Estudiante D:
 #+begin_src org
 [[./estudianteD-game.png]]
 #+end_src
+
 ** Usando Emacs para tener Ayuda sobre Emacs
 ¿Qué comandos le resultan más fáciles de usar y cuáles le son más
 extraños? Identifique 4 comandos que le sean fáciles y 4 que le
@@ -288,27 +291,33 @@ Para consultar lo que hace un comando ejecute:
 8. Pegue el texto en <Pegar lo que dice el...> con ~C-y~
 
 **Comandos Fáciles**
-1. **Estudiante A:** <Poner el comando>. <Pegar lo que dice el primer párrafo de la ayuda>
+1. **Christian Cuaspa:** <C-x 1>. <C-x 1 runs the command delete-other-windows (found in global-map),
+                          which is an interactive native-compiled Lisp function in ‘window.el’.>
+
 2. **Estudiante B:** <Poner el comando>. <Pegar lo que dice el primer párrafo de la ayuda>
-3. 
-4. 
+3. **Estudiante C:** <Poner el comando>. <Pegar lo que dice el primer párrafo de la ayuda>
+4. **Estudiante D:** <Poner el comando>. <Pegar lo que dice el primer párrafo de la ayuda>
 
 **Comandos Difíciles**
-1. **Estudiante A:** <Poner el comando>. <Pegar lo que dice el primer párrafo de la ayuda>
+1. **Estudiante A:** <M-x recover-file>. <recover-file is an interactive native-compiled Lisp function
+                      in ‘files.el’.>
 2. **Estudiante B:** <Poner el comando>. <Pegar lo que dice el primer párrafo de la ayuda>
-3.
+3. **Estudiante C:** <Poner el comando>. <Pegar lo que dice el primer párrafo de la ayuda>
+4. **Estudiante D:** <Poner el comando>. <Pegar lo que dice el primer párrafo de la ayuda>
 
 * Equipo de Trabajo
 Complete la información de los integrantes de grupo e indique el líder
 de grupo.
 
-|-----------------+-------------------------+-------------|
-| Nombre          | email                   | Rol         |
-|-----------------+-------------------------+-------------|
-| Alan Turing     | a.turing@enigma.com     | líder       |
-| Albert Einstein | a.einstein@relativo.com | colaborador |
-|                 |                         |             |
-|-----------------+-------------------------+-------------|
+|-------------------+------------------------------+-------------|
+| Nombre            | email                        | Rol         |
+|-------------------+------------------------------+-------------|
+| Christian Cuaspa  | christian.cuaspa@epn.edu.ec  | líder       |
+| Danny Lanchimba   | danny.lanchimba@epn.edu.ec   | colaborador |
+| Dylan Zuñiga      | dylan.zuniga@epn.edu.ec      | colaborador |
+| Steven Echeverria | steven.echeverria@epn.edu.ec | colaborador |
+|                   |                              |             |
+|-------------------+------------------------------+-------------|
 
 * Verificación de Entregables [33%]:
 Ejecute ~C-c C-c~ sobre los ítems de tarea según se hayan cumplido o
