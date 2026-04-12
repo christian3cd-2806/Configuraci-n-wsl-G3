@@ -5,8 +5,8 @@
 #+options: tasks:t tex:t timestamp:t title:t toc:nil todo:t |:t
 #+title: Taller de Configuracion de Entorno WSL
 #+date: 2026-04-08
-#+author: COLOQUE SU NOMBRE, COLOQUE SEGUNDO NOMBRE
-#+email: lenin.falconi@epn.edu.ec
+#+author: Christian Cuaspa, Danny Lanchimba, Steven Echeverria, Dylan Zuñiga
+#+email: christian.cuaspa@epn.edu.ec, danny.lanchimba@epn.edu.ec, steven.echeverria@epn.edu.ec, dylan.zuniga@epn.edu.ec
 #+language: Espanol
 #+select_tags: export
 #+exclude_tags: noexport
@@ -224,9 +224,9 @@ Estudiante A:
 |-----------+---------|
 
 #+begin_src org
-[[./Captura de pantalla 2026-04-12 094801.png]]
-[[./Captura de pantalla 2026-04-12 095755.png]]
-[[./Captura de pantalla 2026-04-12 100136.png]]
+[[./Intento1_Christian.png]]
+[[./Intento2_Christian.png]]
+[[./Intento3_Christian.png]]
 #+end_src
 
 [[./EmacsTrainerResult.png]]

@@ -1,0 +1,974 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="Espanol" xml:lang="Espanol">
+<head>
+<!-- 2026-04-12 Sun 11:36 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Taller de Configuracion de Entorno WSL</title>
+<meta name="author" content="COLOQUE SU NOMBRE, COLOQUE SEGUNDO NOMBRE" />
+<meta name="generator" content="Org Mode" />
+<style>
+  #content { max-width: 60em; margin: auto; }
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    top: -8px;
+    right: 12px;
+    padding: 3px;
+    color: #555;
+    background-color: #f2f2f299;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { }
+</style>
+<script>
+  window.MathJax = {
+    tex: {
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em'
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">Taller de Configuracion de Entorno WSL</h1>
+
+<div id="outline-container-org3453976" class="outline-2">
+<h2 id="org3453976"><span class="section-number-2">1.</span> Objetivos</h2>
+<div class="outline-text-2" id="text-1">
+<ul class="org-ul">
+<li>Configurar y validar el entorno de trabajo para la asignatura de Arquitectura de Computadores en Linux o WSL.</li>
+<li>Verificar la instalacion de herramientas base: mamba/anaconda (Python), Emacs y \LaTeX.</li>
+<li>Documentar evidencias tecnicas mediante capturas y comandos ejecutados.</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgd0d59a4" class="outline-2">
+<h2 id="orgd0d59a4"><span class="section-number-2">2.</span> Instrucciones</h2>
+<div class="outline-text-2" id="text-2">
+<ol class="org-ol">
+<li>Realice todas las actividades en Linux o en WSL.</li>
+<li>En cada sección ejecute los comandos solicitados y registre la salida en el bloque correspondiente.</li>
+<li>Guarde el archivo y exporte a pdf con el comando `org-latex-export-to-pdf`.</li>
+<li>Verifique que estén todos los nombres de los integrantes del grupo
+de trabajo. Los grupos para este trabajo están en <a href="https://epnecuador.sharepoint.com/:x:/s/ICCD332-ArquitecturaComputadores/IQCjNuELSDbJTb42EfrLL2ksATBSbitbZ9_iFLJxIiCtSr0?e=gowv5I">Equipos de Trabajo</a>.</li>
+<li>Verifique que en las distintas secciones de este archivo esté
+identificado con nombre e email el aporte del estudiante.</li>
+</ol>
+
+<p>
+Si require insertar una imagen, crear una carpeta <code>images</code> y colocar
+la imagen dentro. Para llamar la imagen desde Emacs use <code>C-c C-l</code> y
+busque el archivo o escriba:Puede insertar una imagen con la sintaxis:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-org">[[./images/image1.jpg]]
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-org7250a88" class="outline-2">
+<h2 id="org7250a88"><span class="section-number-2">3.</span> Actividades</h2>
+<div class="outline-text-2" id="text-3">
+</div>
+<div id="outline-container-orgb19921e" class="outline-3">
+<h3 id="orgb19921e"><span class="section-number-3">3.1.</span> Configuración de WSL con Ubuntu, \LaTeX, Python e Emacs</h3>
+<div class="outline-text-3" id="text-3-1">
+<ol class="org-ol">
+<li><p>
+Verificacion de entorno mamba/anaconda
+</p>
+<ol class="org-ol">
+<li>Active WSL (si aplica) y su entorno de trabajo.</li>
+<li>Ejecute <code>mamba info</code> con <code>C-c C-c</code> dentro del bloque de código.</li>
+<li>Si el comando falla, active un entorno con <code>mamba activate iccd332</code> e intente de nuevo.</li>
+</ol>
+
+<div class="org-src-container">
+<pre class="src src-shell">mamba info
+</pre>
+</div>
+
+<pre class="example" id="org9033589">
+
+      libmamba version : 2.5.0
+	 mamba version : 2.5.0
+	  curl version : libcurl/8.19.0 OpenSSL/3.6.1 zlib/1.3.2 zstd/1.5.7 libssh2/1.11.1 nghttp2/1.68.1 mit-krb5/1.22.2
+    libarchive version : libarchive 3.8.6 zlib/1.3.2 liblzma/5.8.2 bz2lib/1.0.8 liblz4/1.10.0 libzstd/1.5.7 liblzo2/2.10 openssl/3.5.5 libb2/bundled
+      envs directories : /home/christian_cuaspa/miniforge3/envs
+	 package cache : /home/christian_cuaspa/miniforge3/pkgs
+			 /home/christian_cuaspa/.mamba/pkgs
+	   environment : iccd332 (active)
+	  env location : /home/christian_cuaspa/miniforge3/envs/iccd332
+     user config files : /home/christian_cuaspa/.mambarc
+populated config files : /home/christian_cuaspa/miniforge3/.condarc
+      virtual packages : __unix=0=0
+			 __linux=6.6.87=0
+			 __glibc=2.39=0
+			 __archspec=1=x86_64_v3
+	      channels : https://conda.anaconda.org/conda-forge/linux-64
+			 https://conda.anaconda.org/conda-forge/noarch
+      base environment : /home/christian_cuaspa/miniforge3
+	      platform : linux-64
+</pre></li>
+</ol>
+
+
+<ol class="org-ol">
+<li><p>
+Verificacion de Python
+</p>
+<ol class="org-ol">
+<li>Active el entorno <code>iccd332</code> para abrir Emacs con <code>mamba activate iccd332</code>.</li>
+<li>Ejecute <code>python --version</code> en la consola y desde Emacs.</li>
+</ol>
+
+<div class="org-src-container">
+<pre class="src src-shell">python --version
+</pre>
+</div>
+
+<pre class="example">
+Python 3.14.4
+</pre></li>
+
+<li><p>
+Verificacion de Emacs
+Ejecute <code>emacs --version</code> en la consola y desde Emacs.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-shell">emacs --version
+</pre>
+</div>
+
+<pre class="example">
+GNU Emacs 29.3
+Copyright (C) 2024 Free Software Foundation, Inc.
+GNU Emacs comes with ABSOLUTELY NO WARRANTY.
+You may redistribute copies of GNU Emacs
+under the terms of the GNU General Public License.
+For more information about these matters, see the file named COPYING.
+</pre></li>
+</ol>
+
+
+<ol class="org-ol">
+<li><p>
+Verificacion de LaTeX
+Ejecute <code>latex --version</code> en la consola y desde Emacs.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-shell">latex --version
+</pre>
+</div>
+
+<pre class="example" id="orgea91a73">
+pdfTeX 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian)
+kpathsea version 6.3.5
+Copyright 2023 Han The Thanh (pdfTeX) et al.
+There is NO warranty.  Redistribution of this software is
+covered by the terms of both the pdfTeX copyright and
+the Lesser GNU General Public License.
+For more information about these matters, see the file
+named COPYING and the pdfTeX source.
+Primary author of pdfTeX: Han The Thanh (pdfTeX) et al.
+Compiled with libpng 1.6.43; using libpng 1.6.43
+Compiled with zlib 1.3; using zlib 1.3
+Compiled with xpdf version 4.04
+</pre></li>
+</ol>
+
+
+<ol class="org-ol">
+<li>Registro de problemas y solucion aplicada</li>
+</ol>
+
+<p>
+Complete la siguiente tabla si tuvo errores durante la configuracion:
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left"><b>Herramienta</b></th>
+<th scope="col" class="org-left"><b>Problema observado</b></th>
+<th scope="col" class="org-left"><b>Solucion aplicada</b></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">Emacs(Christian Cuaspa)</td>
+<td class="org-left">Ejecución de C-c C-c fallida</td>
+<td class="org-left">Ejecucion Eval expresion y luego introducir (org-babel-do-load-languages 'org-babel-load-languages '((shell . t) (python . t)))</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+<div id="outline-container-orgc570ebe" class="outline-3">
+<h3 id="orgc570ebe"><span class="section-number-3">3.2.</span> Comandos Emacs Tutorial</h3>
+<div class="outline-text-3" id="text-3-2">
+<p>
+Seguir el tutorial integrado en Emacs al respecto de la navegación y
+operaciones más frecuentes. El tutorial puede ser accedido en Español
+utilizando el comando:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-emacs-lisp">M-x help-with-tutorial-spec-language
+</pre>
+</div>
+
+<p>
+Realice los ejercicios del tutorial (al menos un 80% del texto) y
+complete la siguiente tabla con los comandos que considere de mayor
+interés. Verifique que en la parte superior se active el menú de
+tabla. Dentro de la región de la tabla puede dar C-c C-c para alinear
+automáticamente la tabla al contenido del texto que escriba. Para
+generar una nueva fila escriba presione la tecla TAB
+</p>
+
+<p>
+&lt;Estudiante A&gt; Christian Cuaspa
+</p>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left"><b>Comando</b></th>
+<th scope="col" class="org-left"><b>Descripción</b></th>
+<th scope="col" class="org-left"><b>Comando</b></th>
+<th scope="col" class="org-left"><b>Descripción</b></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left"><code>M-d</code></td>
+<td class="org-left">Elimina la siguiente palabra despues del cursor</td>
+<td class="org-left"><code>C-&lt;SPC&gt;</code></td>
+<td class="org-left">Selciona el contenido desde la posición actual del cursor hasta su nueva posición</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>M-k</code></td>
+<td class="org-left">Elimina hasta el final de una oración</td>
+<td class="org-left"><code>C-w</code></td>
+<td class="org-left">Elimina lo seleccionado con C-&lt;SPC&gt;</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>C-/</code></td>
+<td class="org-left">Deshace una acción</td>
+<td class="org-left"><code>C-x C-b</code></td>
+<td class="org-left">Muestra la lista de buffers</td>
+</tr>
+</tbody>
+</table>
+
+<p>
+&lt;Estudiante B&gt;
+</p>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left"><b>Comando</b></th>
+<th scope="col" class="org-left"><b>Descripción</b></th>
+<th scope="col" class="org-left"><b>Comando</b></th>
+<th scope="col" class="org-left"><b>Descripción</b></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left"><code>C-c C-e # latex</code></td>
+<td class="org-left">Insertar template de  latex</td>
+<td class="org-left"><code>C-x C-s</code></td>
+<td class="org-left">Guardar los cambios en el archivo</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+</tbody>
+</table>
+
+<p>
+&lt;Estudiante C&gt;
+</p>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left"><b>Comando</b></th>
+<th scope="col" class="org-left"><b>Descripción</b></th>
+<th scope="col" class="org-left"><b>Comando</b></th>
+<th scope="col" class="org-left"><b>Descripción</b></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left"><code>C-c C-e # latex</code></td>
+<td class="org-left">Insertar template de  latex</td>
+<td class="org-left"><code>C-x C-s</code></td>
+<td class="org-left">Guardar los cambios en el archivo</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+</tbody>
+</table>
+
+<p>
+&lt;Estudiante D&gt;
+</p>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left"><b>Comando</b></th>
+<th scope="col" class="org-left"><b>Descripción</b></th>
+<th scope="col" class="org-left"><b>Comando</b></th>
+<th scope="col" class="org-left"><b>Descripción</b></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left"><code>C-c C-e # latex</code></td>
+<td class="org-left">Insertar template de  latex</td>
+<td class="org-left"><code>C-x C-s</code></td>
+<td class="org-left">Guardar los cambios en el archivo</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="outline-container-orgd4035ce" class="outline-3">
+<h3 id="orgd4035ce"><span class="section-number-3">3.3.</span> Comandos Emacs Juego</h3>
+<div class="outline-text-3" id="text-3-3">
+<p>
+En la anterior sección usted revisó los comandos de mayor interés
+sobre la manipulación de Emacs. Es hora de poner en práctica sus
+conocimientos. Realice unas 3 visitas al juego  <a href="https://chat.qwen.ai/s/deploy/t_23ff57ef-b59a-4bd7-9b79-54679b33686d">Emacs-Trainer</a> y apunte
+en la siguiente tabla su puntaje.
+</p>
+
+<p>
+Estudiante A: 
+</p>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-right" />
+
+<col  class="org-right" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-right">iteración</th>
+<th scope="col" class="org-right">Puntaje</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-right">1</td>
+<td class="org-right">136</td>
+</tr>
+
+<tr>
+<td class="org-right">2</td>
+<td class="org-right">140</td>
+</tr>
+
+<tr>
+<td class="org-right">3</td>
+<td class="org-right">140</td>
+</tr>
+</tbody>
+</table>
+
+<div class="org-src-container">
+<pre class="src src-org">[[./Captura de pantalla 2026-04-12 094801.png]]
+[[./Captura de pantalla 2026-04-12 095755.png]]
+[[./Captura de pantalla 2026-04-12 100136.png]]
+</pre>
+</div>
+
+
+<div id="org832b55b" class="figure">
+<p><img src="./EmacsTrainerResult.png" alt="EmacsTrainerResult.png" />
+</p>
+</div>
+
+<p>
+Estudiante B: 
+</p>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-right" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-right">iteración</th>
+<th scope="col" class="org-left">Puntaje</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-right">1</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-right">2</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-right">3</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+</tbody>
+</table>
+
+<div class="org-src-container">
+<pre class="src src-org">[[./estudianteB-game.png]]
+</pre>
+</div>
+
+<p>
+Estudiante C: 
+</p>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-right" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-right">iteración</th>
+<th scope="col" class="org-left">Puntaje</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-right">1</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-right">2</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-right">3</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+</tbody>
+</table>
+
+<div class="org-src-container">
+<pre class="src src-org">[[./estudianteC-game.png]]
+</pre>
+</div>
+
+<p>
+Estudiante D: 
+</p>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-right" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-right">iteración</th>
+<th scope="col" class="org-left">Puntaje</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-right">1</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-right">2</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-right">3</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+</tbody>
+</table>
+
+<div class="org-src-container">
+<pre class="src src-org">[[./estudianteD-game.png]]
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgf33aaef" class="outline-3">
+<h3 id="orgf33aaef"><span class="section-number-3">3.4.</span> Usando Emacs para tener Ayuda sobre Emacs</h3>
+<div class="outline-text-3" id="text-3-4">
+<p>
+¿Qué comandos le resultan más fáciles de usar y cuáles le son más
+extraños? Identifique 4 comandos que le sean fáciles y 4 que le
+resulten complicados. Revise qué dice la ayuda de Emacs sobre cada
+comando y escriba en sus palabras el para qué sirve.
+</p>
+
+<p>
+Para consultar lo que hace un comando ejecute:
+</p>
+<ol class="org-ol">
+<li><code>C-h k</code></li>
+<li>Emacs le preguntara cuál es la combinación de la que requiere
+ayuda. Presione las teclas del comando. Por ejemplo, <code>C-x C-f</code></li>
+<li>Emacs abrirá un nuevo buffer con la descripción del comando.</li>
+<li>Cambie al buffer de la ayuda con <code>C-x o</code></li>
+<li>Seleccione el primer parrafo de ayuda ubicando el cursor al inicio
+del parrafo y activando la marcación de texto con
+<code>C-SPC</code>. Seleccione avanzando por palabras <code>M-f</code> o directamente
+toda la linea <code>C-e</code></li>
+<li>Una vez seleccionado, copie el texto con <code>M-w</code>.</li>
+<li>Regrese al buffer anterior con <code>C-x o</code>.</li>
+<li>Pegue el texto en &lt;Pegar lo que dice el&#x2026;&gt; con <code>C-y</code></li>
+</ol>
+
+<p>
+<b><b>Comandos Fáciles</b></b>
+</p>
+<ol class="org-ol">
+<li><b><b>Christian Cuaspa:</b></b> &lt;C-x 1&gt;. &lt;C-x 1 runs the command delete-other-windows (found in global-map),
+which is an interactive native-compiled Lisp function in ‘window.el’.&gt;</li>
+
+<li><b><b>Estudiante B:</b></b> &lt;Poner el comando&gt;. &lt;Pegar lo que dice el primer párrafo de la ayuda&gt;</li>
+<li><b><b>Estudiante C:</b></b> &lt;Poner el comando&gt;. &lt;Pegar lo que dice el primer párrafo de la ayuda&gt;</li>
+<li><b><b>Estudiante D:</b></b> &lt;Poner el comando&gt;. &lt;Pegar lo que dice el primer párrafo de la ayuda&gt;</li>
+</ol>
+
+<p>
+<b><b>Comandos Difíciles</b></b>
+</p>
+<ol class="org-ol">
+<li><b><b>Estudiante A:</b></b> &lt;M-x recover-file&gt;. &lt;recover-file is an interactive native-compiled Lisp function
+in ‘files.el’.&gt;</li>
+<li><b><b>Estudiante B:</b></b> &lt;Poner el comando&gt;. &lt;Pegar lo que dice el primer párrafo de la ayuda&gt;</li>
+<li><b><b>Estudiante C:</b></b> &lt;Poner el comando&gt;. &lt;Pegar lo que dice el primer párrafo de la ayuda&gt;</li>
+<li><b><b>Estudiante D:</b></b> &lt;Poner el comando&gt;. &lt;Pegar lo que dice el primer párrafo de la ayuda&gt;</li>
+</ol>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org0e107a9" class="outline-2">
+<h2 id="org0e107a9"><span class="section-number-2">4.</span> Equipo de Trabajo</h2>
+<div class="outline-text-2" id="text-4">
+<p>
+Complete la información de los integrantes de grupo e indique el líder
+de grupo.
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Nombre</th>
+<th scope="col" class="org-left">email</th>
+<th scope="col" class="org-left">Rol</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">Christian Cuaspa</td>
+<td class="org-left">christian.cuaspa@epn.edu.ec</td>
+<td class="org-left">líder</td>
+</tr>
+
+<tr>
+<td class="org-left">Danny Lanchimba</td>
+<td class="org-left">danny.lanchimba@epn.edu.ec</td>
+<td class="org-left">colaborador</td>
+</tr>
+
+<tr>
+<td class="org-left">Dylan Zuñiga</td>
+<td class="org-left">dylan.zuniga@epn.edu.ec</td>
+<td class="org-left">colaborador</td>
+</tr>
+
+<tr>
+<td class="org-left">Steven Echeverria</td>
+<td class="org-left">steven.echeverria@epn.edu.ec</td>
+<td class="org-left">colaborador</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+<div id="outline-container-orga5e8fa3" class="outline-2">
+<h2 id="orga5e8fa3"><span class="section-number-2">5.</span> Verificación de Entregables <code>[33%]</code>:</h2>
+<div class="outline-text-2" id="text-5">
+<p>
+Ejecute <code>C-c C-c</code> sobre los ítems de tarea según se hayan cumplido o
+no. Si un ítem no pudo realizarse apunte en la siguiente sección las
+razones al respecto.
+</p>
+<ul class="org-ul">
+<li class="on"><code>[X]</code> Verificación de configuración de entorno WSL y paquetes del curso.</li>
+<li class="off"><code>[&#xa0;]</code> Tutorial de Comandos Emacs realizado.</li>
+<li class="off"><code>[&#xa0;]</code> Captura de Imágenes y puntajes de Emacs Trainer App.</li>
+<li class="off"><code>[&#xa0;]</code> Usando Emacs para tener ayuda sobre Emacs</li>
+<li class="off"><code>[&#xa0;]</code> Verifique que estén los nombres de los integrantes del equipo e
+identificado el líder.</li>
+<li class="off"><code>[&#xa0;]</code> Revisión de ortografía con <code>ispell</code> en el buffer</li>
+<li class="off"><code>[&#xa0;]</code> Generación de Archivo PDF <code>M-x org-latex-export-to-pdf</code></li>
+</ul>
+</div>
+<div id="outline-container-org7367cae" class="outline-3">
+<h3 id="org7367cae"><span class="section-number-3">5.1.</span> Problemas con la Tarea:</h3>
+<div class="outline-text-3" id="text-5-1">
+<ul class="org-ul">
+<li>Tarea \(X_1\) no pudo completarse debido a</li>
+<li>Tarea \(X_2\) no pudo completarse debido a</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="date">Date: 2026-04-08</p>
+<p class="author">Author: COLOQUE SU NOMBRE, COLOQUE SEGUNDO NOMBRE</p>
+<p class="date">Created: 2026-04-12 Sun 11:36</p>
+<p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
+</div>
+</body>
+</html>
