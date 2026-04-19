@@ -33,7 +33,7 @@
 #+LATEX_HEADER: \usepackage{longtable}
 
 #+begin_export latex
-\fancyhead[C]{\includegraphics[scale=0.05]{../images/logoEPN.jpg}\\
+\fancyhead[C]{\includegraphics[scale=0.05]{./images/logoEPN.jpg}\\
 ESCUELA POLITÉCNICA NACIONAL\\FACULTAD DE INGENIERÍA DE SISTEMAS\\
 ARQUITECTURA DE COMPUTADORES}
 \thispagestyle{fancy}
@@ -81,7 +81,6 @@ busque el archivo o escriba:Puede insertar una imagen con la sintaxis:
 	     mamba version : 2.5.0
 	      curl version : libcurl/8.19.0 OpenSSL/3.6.1 zlib/1.3.2 zstd/1.5.7 libssh2/1.11.1 nghttp2/1.68.1 mit-krb5/1.22.2
 	libarchive version : libarchive 3.8.6 zlib/1.3.2 liblzma/5.8.2 bz2lib/1.0.8 liblz4/1.10.0 libzstd/1.5.7 liblzo2/2.10 openssl/3.5.5 libb2/bundled
-<<<<<<< HEAD
 	  envs directories : /home/christian_cuaspa/miniforge3/envs
 	     package cache : /home/christian_cuaspa/miniforge3/pkgs
 			     /home/christian_cuaspa/.mamba/pkgs
@@ -96,22 +95,6 @@ busque el archivo o escriba:Puede insertar una imagen con la sintaxis:
 		  channels : https://conda.anaconda.org/conda-forge/linux-64
 			     https://conda.anaconda.org/conda-forge/noarch
 	  base environment : /home/christian_cuaspa/miniforge3
-=======
-	  envs directories : /home/stevenech/miniforge3/envs
-	     package cache : /home/stevenech/miniforge3/pkgs
-			     /home/stevenech/.mamba/pkgs
-	       environment : iccd332 (active)
-	      env location : /home/stevenech/miniforge3/envs/iccd332
-	 user config files : /home/stevenech/.mambarc
-    populated config files : /home/stevenech/miniforge3/.condarc
-	  virtual packages : __unix=0=0
-			     __linux=6.6.87=0
-			     __glibc=2.39=0
-			     __archspec=1=x86_64_v4
-		  channels : https://conda.anaconda.org/conda-forge/linux-64
-			     https://conda.anaconda.org/conda-forge/noarch
-	  base environment : /home/stevenech/miniforge3
->>>>>>> origin/estudianteD
 		  platform : linux-64
    #+end_example
 
@@ -204,11 +187,11 @@ generar una nueva fila escriba presione la tecla TAB
 
 <Estudiante B>
 #+ATTR_LATEX: :environment longtable :align |p{0.2\linewidth}|p{0.3\linewidth}|p{0.2\linewidth}|p{0.3\linewidth}|
-| *Comando*         | *Descripción*               | *Comando* | *Descripción*                     |
-|-------------------+-----------------------------+-----------+-----------------------------------|
-| ~C-c C-e # latex~ | Insertar template de  latex | ~C-x C-s~ | Guardar los cambios en el archivo |
-|                   |                             |           |                                   |
-|                   |                             |           |                                   |
+| *Comando* | *Descripción*              | *Comando* | *Descripción*                    |
+|-----------+----------------------------+-----------+----------------------------------|
+| ~C-k~     | elimina una linea completa | ~C-a~     | va al inicio de la línea         |
+| ~C-x C-f~ | abre o crea un archivo     | ~C-e~     | va al final de la línea          |
+| ~C-/~     | deshace la última acción   | ~M-f~     | se mueve adelante de una palabra |
 
 <Estudiante C>
 #+ATTR_LATEX: :environment longtable :align |p{0.2\linewidth}|p{0.3\linewidth}|p{0.2\linewidth}|p{0.3\linewidth}|
@@ -248,14 +231,14 @@ Estudiante B:
 |-----------+---------|
 | iteración | Puntaje |
 |-----------+---------|
-|         1 |         |
-|         2 |         |
-|         3 |         |
+|         1 |   140   |
+|         2 |   140   |
+|         3 |   140   |
 |-----------+---------|
 
-#+begin_src org
-[[./estudianteB-game.png]]
-#+end_src
+[[./images/estudianteB-game.png]] 
+ [[./images/estudianteB-game2.png]]
+ [[./images/estudianteB-game3.png]]
 
 Estudiante C: 
 |-----------+---------|
@@ -306,20 +289,21 @@ Para consultar lo que hace un comando ejecute:
 **Comandos Fáciles**
 1. **Christian Cuaspa:** <C-x 1>. <C-x 1 runs the command delete-other-windows (found in global-map),
                           which is an interactive native-compiled Lisp function in ‘window.el’.>
-
-2. **Estudiante B:** <Poner el comando>. <Pegar lo que dice el primer párrafo de la ayuda>
-3. **Estudiante C:** <Poner el comando>. <Pegar lo que dice el primer párrafo de la ayuda> 
+2. **Estudiante B:** <C-n>. <Mueve el cursor a la siguiente línea>
+3. **Estudiante C:** <M-h>. <Pegar lo que dice el primer párrafo de la ayuda>
 4. **Estudiante D:** ~C-p~. C-p runs the command previous-line (found in global-map), which is an
-interactive native-compiled Lisp function in ‘simple.el’. Sirve para mover el cursor a una línea anterior.
+                     interactive native-compiled Lisp function in ‘simple.el’. Sirve para mover el
+		     cursor a una línea anterior.
 
 **Comandos Difíciles**
 1. **Estudiante A:** <M-x recover-file>. <recover-file is an interactive native-compiled Lisp function
                       in ‘files.el’.>
-2. **Estudiante B:** <Poner el comando>. <Pegar lo que dice el primer párrafo de la ayuda>
-3. **Estudiante C:** <Poner el comando>. <Pegar lo que dice el primer párrafo de la ayuda>
+2. **Estudiante B:** <C-x v u>. <Deshace cambios del git>
+3. **Estudiante C:** <C-x C-v> <C-x C-v runs the command find-alternate-file (found in global-map),
+                     which is an interactive native-compiled Lisp function in ‘files.el’.>
 4. **Estudiante D:** ~C-x 4 C-f. C-x 4 C-f runs the command find-file-other-window (found in
-global-map), which is an interactive native-compiled Lisp function in
-‘files.el’. Permite abrir un archivo específico en otra ventana.
+                     global-map), which is an interactive native-compiled Lisp function in
+                     ‘files.el’. Permite abrir un archivo específico en otra ventana.
 
 * Equipo de Trabajo
 Complete la información de los integrantes de grupo e indique el líder
@@ -335,7 +319,7 @@ de grupo.
 |                   |                              |             |
 |-------------------+------------------------------+-------------|
 
-* Verificación de Entregables [85%]:
+* Verificación de Entregables [100%]:
 Ejecute ~C-c C-c~ sobre los ítems de tarea según se hayan cumplido o
 no. Si un ítem no pudo realizarse apunte en la siguiente sección las
 razones al respecto.
@@ -343,8 +327,7 @@ razones al respecto.
 - [X] Tutorial de Comandos Emacs realizado.
 - [X] Captura de Imágenes y puntajes de Emacs Trainer App.
 - [X] Usando Emacs para tener ayuda sobre Emacs
-- [ ] Verifique que estén los nombres de los integrantes del equipo e
-  identificado el líder.
+- [X] Verifique que estén los nombres de los integrantes del equipo e identificado el líder.
 - [X] Revisión de ortografía con ~ispell~ en el buffer
 - [X] Generación de Archivo PDF ~M-x org-latex-export-to-pdf~
 ** Problemas con la Tarea:
