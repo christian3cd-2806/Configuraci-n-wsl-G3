@@ -153,11 +153,11 @@ generar una nueva fila escriba presione la tecla TAB
 
 <Estudiante C>
 #+ATTR_LATEX: :environment longtable :align |p{0.2\linewidth}|p{0.3\linewidth}|p{0.2\linewidth}|p{0.3\linewidth}|
-| *Comando*         | *Descripción*               | *Comando* | *Descripción*                     |
-|-------------------+-----------------------------+-----------+-----------------------------------|
-| ~C-c C-e # latex~ | Insertar template de  latex | ~C-x C-s~ | Guardar los cambios en el archivo |
-|                   |                             |           |                                   |
-|                   |                             |           |                                   |
+| *Comando*   | *Descripción* | *Comando* | *Descripción*                     |
+|-------------+---------------+-----------+-----------------------------------|
+| ~C-/ o C-_~ | Deshacer      | ~C-x C-u~ | Convierte una región a mayúsculas |
+| ~C-g C-/~   | Rehacer       | ~C-x C-l~ | Convierte una región a minúsculas |
+|             |               |           |                                   |
 
 <Estudiante D>
 #+ATTR_LATEX: :environment longtable :align |p{0.2\linewidth}|p{0.3\linewidth}|p{0.2\linewidth}|p{0.3\linewidth}|
@@ -204,14 +204,14 @@ Estudiante C:
 |-----------+---------|
 | iteración | Puntaje |
 |-----------+---------|
-|         1 |         |
-|         2 |         |
-|         3 |         |
+|         1 |    92   |
+|         2 |    130  |
+|         3 |    140  |
 |-----------+---------|
 
-#+begin_src org
-[[./estudianteC-game.png]]
-#+end_src
+[[./images/DylanZuniga_intento1.jpg]]
+[[./images/DylanZuniga_intento2.jpg]]
+[[./images/DylanZuniga_intento3.jpg]]
 
 Estudiante D: 
 |-----------+---------|
@@ -248,13 +248,15 @@ Para consultar lo que hace un comando ejecute:
 **Comandos Fáciles**
 1. **Estudiante A:** <Poner el comando>. <Pegar lo que dice el primer párrafo de la ayuda>
 2. **Estudiante B:** <Poner el comando>. <Pegar lo que dice el primer párrafo de la ayuda>
-3. 
+3. **Estudiante C:** <M-h>. <Pegar lo que dice el primer párrafo de la ayuda>
 4. 
 
 **Comandos Difíciles**
 1. **Estudiante A:** <Poner el comando>. <Pegar lo que dice el primer párrafo de la ayuda>
 2. **Estudiante B:** <Poner el comando>. <Pegar lo que dice el primer párrafo de la ayuda>
-3.
+3. **Estudiante C:** <C-x C-v> <C-x C-v runs the command find-alternate-file (found in global-map),
+which is an interactive native-compiled Lisp function in ‘files.el’.>
+4.
 
 * Equipo de Trabajo
 Complete la información de los integrantes de grupo e indique el líder
