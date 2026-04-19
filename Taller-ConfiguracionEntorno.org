@@ -3,9 +3,9 @@
 #+options: d:(not "LOGBOOK") date:t e:t email:nil expand-links:t f:t
 #+options: inline:t num:t p:nil pri:nil prop:nil stat:t tags:t
 #+options: tasks:t tex:t timestamp:t title:t toc:nil todo:t |:t
-#+title: Taller de Configuracion de Entorno WSL
+#+title: Taller de Configuración de Entorno WSL
 #+date: 2026-04-08
-#+author: COLOQUE SU NOMBRE, COLOQUE SEGUNDO NOMBRE
+#+author: STEVEN ECHEVERRÍA
 #+email: lenin.falconi@epn.edu.ec
 #+language: Espanol
 #+select_tags: export
@@ -34,7 +34,7 @@
 
 #+begin_export latex
 \fancyhead[C]{\includegraphics[scale=0.05]{../images/logoEPN.jpg}\\
-ESCUELA POLITECNICA NACIONAL\\FACULTAD DE INGENIERIA DE SISTEMAS\\
+ESCUELA POLITÉCNICA NACIONAL\\FACULTAD DE INGENIERÍA DE SISTEMAS\\
 ARQUITECTURA DE COMPUTADORES}
 \thispagestyle{fancy}
 #+end_export
@@ -42,8 +42,8 @@ ARQUITECTURA DE COMPUTADORES}
 * Objetivos
 
 - Configurar y validar el entorno de trabajo para la asignatura de Arquitectura de Computadores en Linux o WSL.
-- Verificar la instalacion de herramientas base: mamba/anaconda (Python), Emacs y \LaTeX.
-- Documentar evidencias tecnicas mediante capturas y comandos ejecutados.
+- Verificar la instalación de herramientas base: mamba/anaconda (Python), Emacs y \LaTeX.
+- Documentar evidencias técnicas mediante capturas y comandos ejecutados.
 
 * Instrucciones
 
@@ -55,7 +55,7 @@ ARQUITECTURA DE COMPUTADORES}
 5. Verifique que en las distintas secciones de este archivo esté
    identificado con nombre e email el aporte del estudiante.
 
-Si require insertar una imagen, crear una carpeta ~images~ y colocar
+Si requiere insertar una imagen, crear una carpeta ~images~ y colocar
 la imagen dentro. Para llamar la imagen desde Emacs use ~C-c C-l~ y
 busque el archivo o escriba:Puede insertar una imagen con la sintaxis:
 
@@ -65,7 +65,7 @@ busque el archivo o escriba:Puede insertar una imagen con la sintaxis:
 * Actividades
 ** Configuración de WSL con Ubuntu, \LaTeX, Python e Emacs
 
-1. Verificacion de entorno mamba/anaconda
+1. Verificación de entorno mamba/anaconda
    1. Active WSL (si aplica) y su entorno de trabajo.
    2. Ejecute ~mamba info~ con ~C-c C-c~ dentro del bloque de código.
    3. Si el comando falla, active un entorno con ~mamba activate iccd332~ e intente de nuevo.
@@ -75,9 +75,31 @@ busque el archivo o escriba:Puede insertar una imagen con la sintaxis:
    #+end_src
   
    #+RESULTS:
+   #+begin_example
+
+	  libmamba version : 2.5.0
+	     mamba version : 2.5.0
+	      curl version : libcurl/8.19.0 OpenSSL/3.6.1 zlib/1.3.2 zstd/1.5.7 libssh2/1.11.1 nghttp2/1.68.1 mit-krb5/1.22.2
+	libarchive version : libarchive 3.8.6 zlib/1.3.2 liblzma/5.8.2 bz2lib/1.0.8 liblz4/1.10.0 libzstd/1.5.7 liblzo2/2.10 openssl/3.5.5 libb2/bundled
+	  envs directories : /home/stevenech/miniforge3/envs
+	     package cache : /home/stevenech/miniforge3/pkgs
+			     /home/stevenech/.mamba/pkgs
+	       environment : iccd332 (active)
+	      env location : /home/stevenech/miniforge3/envs/iccd332
+	 user config files : /home/stevenech/.mambarc
+    populated config files : /home/stevenech/miniforge3/.condarc
+	  virtual packages : __unix=0=0
+			     __linux=6.6.87=0
+			     __glibc=2.39=0
+			     __archspec=1=x86_64_v4
+		  channels : https://conda.anaconda.org/conda-forge/linux-64
+			     https://conda.anaconda.org/conda-forge/noarch
+	  base environment : /home/stevenech/miniforge3
+		  platform : linux-64
+   #+end_example
 
 
-2. Verificacion de Python
+2. Verificación de Python
    1. Active el entorno ~iccd332~ para abrir Emacs con ~mamba activate iccd332~.
    2. Ejecute ~python --version~ en la consola y desde Emacs.
 
@@ -86,9 +108,9 @@ busque el archivo o escriba:Puede insertar una imagen con la sintaxis:
    #+end_src
 
    #+RESULTS:
-   : Python 3.9.23
+   : Python 3.14.4
 
-3. Verificacion de Emacs
+3. Verificación de Emacs
    Ejecute ~emacs --version~ en la consola y desde Emacs.
 
    #+begin_src shell :exports both :results verbatim
@@ -96,9 +118,15 @@ busque el archivo o escriba:Puede insertar una imagen con la sintaxis:
    #+end_src
 
    #+RESULTS:
+   : GNU Emacs 29.3
+   : Copyright (C) 2024 Free Software Foundation, Inc.
+   : GNU Emacs comes with ABSOLUTELY NO WARRANTY.
+   : You may redistribute copies of GNU Emacs
+   : under the terms of the GNU General Public License.
+   : For more information about these matters, see the file named COPYING.
 
 
-4. Verificacion de LaTeX
+4. Verificación de LaTeX
    Ejecute ~latex --version~ en la consola y desde Emacs.
 
    #+begin_src shell :exports both :results verbatim
@@ -106,14 +134,28 @@ busque el archivo o escriba:Puede insertar una imagen con la sintaxis:
    #+end_src
 
    #+RESULTS:
+   #+begin_example
+   pdfTeX 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian)
+   kpathsea version 6.3.5
+   Copyright 2023 Han The Thanh (pdfTeX) et al.
+   There is NO warranty.  Redistribution of this software is
+   covered by the terms of both the pdfTeX copyright and
+   the Lesser GNU General Public License.
+   For more information about these matters, see the file
+   named COPYING and the pdfTeX source.
+   Primary author of pdfTeX: Han The Thanh (pdfTeX) et al.
+   Compiled with libpng 1.6.43; using libpng 1.6.43
+   Compiled with zlib 1.3; using zlib 1.3
+   Compiled with xpdf version 4.04
+   #+end_example
 
 
-5. Registro de problemas y solucion aplicada
+5. Registro de problemas y solución aplicada
 
-Complete la siguiente tabla si tuvo errores durante la configuracion:
+Complete la siguiente tabla si tuvo errores durante la configuración:
 
 #+ATTR_LATEX: :environment tabularx :width \textwidth :align lXX
-| *Herramienta* | *Problema observado* | *Solucion aplicada* |
+| *Herramienta* | *Problema observado* | *Solución aplicada* |
 |---------------+----------------------+---------------------|
 |               |                      |                     |
 |               |                      |                     |
@@ -161,11 +203,11 @@ generar una nueva fila escriba presione la tecla TAB
 
 <Estudiante D>
 #+ATTR_LATEX: :environment longtable :align |p{0.2\linewidth}|p{0.3\linewidth}|p{0.2\linewidth}|p{0.3\linewidth}|
-| *Comando*         | *Descripción*               | *Comando* | *Descripción*                     |
-|-------------------+-----------------------------+-----------+-----------------------------------|
-| ~C-c C-e # latex~ | Insertar template de  latex | ~C-x C-s~ | Guardar los cambios en el archivo |
-|                   |                             |           |                                   |
-|                   |                             |           |                                   |
+| *Comando* | *Descripción*                                            | *Comando* | *Descripción*                                        |
+|-----------+----------------------------------------------------------+-----------+------------------------------------------------------|
+| ~C-e~     | Mover el cursor al final de una línea                    | ~C-y~     | Pegar un texto copiado o borrado anteriormente       |
+| ~C-x-1~   | Quedarme solo con la ventana activa y eliminar las demás | ~C-x b~   | Abrir otro buffer                                    |
+| ~M-k~     | Eliminar una oración completa                            | ~M-C-v~   | Desplazar el buffer que se encuentra en otra ventana |
 ** Comandos Emacs Juego
 En la anterior sección usted revisó los comandos de mayor interés
 sobre la manipulación de Emacs. Es hora de poner en práctica sus
@@ -217,14 +259,14 @@ Estudiante D:
 |-----------+---------|
 | iteración | Puntaje |
 |-----------+---------|
-|         1 |         |
-|         2 |         |
-|         3 |         |
+|         1 |     130 |
+|         2 |     130 |
+|         3 |     140 |
 |-----------+---------|
 
-#+begin_src org
-[[./estudianteD-game.png]]
-#+end_src
+[[./images/StevenEcheverria1.png]]
+[[./images/StevenEcheverria2.png]]
+[[./images/StevenEcheverria3.png]]
 ** Usando Emacs para tener Ayuda sobre Emacs
 ¿Qué comandos le resultan más fáciles de usar y cuáles le son más
 extraños? Identifique 4 comandos que le sean fáciles y 4 que le
@@ -237,8 +279,8 @@ Para consultar lo que hace un comando ejecute:
    ayuda. Presione las teclas del comando. Por ejemplo, ~C-x C-f~
 3. Emacs abrirá un nuevo buffer con la descripción del comando.
 4. Cambie al buffer de la ayuda con ~C-x o~
-5. Seleccione el primer parrafo de ayuda ubicando el cursor al inicio
-   del parrafo y activando la marcación de texto con
+5. Seleccione el primer párrafo de ayuda ubicando el cursor al inicio
+   del párrafo y activando la marcación de texto con
    ~C-SPC~. Seleccione avanzando por palabras ~M-f~ o directamente
    toda la linea ~C-e~
 6. Una vez seleccionado, copie el texto con ~M-w~.
@@ -248,38 +290,41 @@ Para consultar lo que hace un comando ejecute:
 **Comandos Fáciles**
 1. **Estudiante A:** <Poner el comando>. <Pegar lo que dice el primer párrafo de la ayuda>
 2. **Estudiante B:** <Poner el comando>. <Pegar lo que dice el primer párrafo de la ayuda>
-3. 
-4. 
+3. **Estudiante C:** <Poner el comando>. <Pegar lo que dice el primer párrafo de la ayuda> 
+4. **Estudiante D:** ~C-p~. C-p runs the command previous-line (found in global-map), which is an
+interactive native-compiled Lisp function in ‘simple.el’. Sirve para mover el cursor a una línea anterior.
 
 **Comandos Difíciles**
 1. **Estudiante A:** <Poner el comando>. <Pegar lo que dice el primer párrafo de la ayuda>
 2. **Estudiante B:** <Poner el comando>. <Pegar lo que dice el primer párrafo de la ayuda>
-3.
-
+3. **Estudiante C:** <Poner el comando>. <Pegar lo que dice el primer párrafo de la ayuda>
+4. **Estudiante D:** ~C-x 4 C-f. C-x 4 C-f runs the command find-file-other-window (found in
+global-map), which is an interactive native-compiled Lisp function in
+‘files.el’. Permite abrir un archivo específico en otra ventana.
 * Equipo de Trabajo
 Complete la información de los integrantes de grupo e indique el líder
 de grupo.
 
-|-----------------+-------------------------+-------------|
-| Nombre          | email                   | Rol         |
-|-----------------+-------------------------+-------------|
-| Alan Turing     | a.turing@enigma.com     | líder       |
-| Albert Einstein | a.einstein@relativo.com | colaborador |
-|                 |                         |             |
-|-----------------+-------------------------+-------------|
+|-------------------+------------------------------+-------------|
+| Nombre            | email                        | Rol         |
+|-------------------+------------------------------+-------------|
+| Alan Turing       | a.turing@enigma.com          | líder       |
+| Steven Echeverría | steven.echeverria@epn.edu.ec | colaborador |
+|                   |                              |             |
+|-------------------+------------------------------+-------------|
 
-* Verificación de Entregables [33%]:
+* Verificación de Entregables [85%]:
 Ejecute ~C-c C-c~ sobre los ítems de tarea según se hayan cumplido o
 no. Si un ítem no pudo realizarse apunte en la siguiente sección las
 razones al respecto.
 - [X] Verificación de configuración de entorno WSL y paquetes del curso. 
-- [ ] Tutorial de Comandos Emacs realizado.
-- [ ] Captura de Imágenes y puntajes de Emacs Trainer App.
-- [ ] Usando Emacs para tener ayuda sobre Emacs
+- [X] Tutorial de Comandos Emacs realizado.
+- [X] Captura de Imágenes y puntajes de Emacs Trainer App.
+- [X] Usando Emacs para tener ayuda sobre Emacs
 - [ ] Verifique que estén los nombres de los integrantes del equipo e
   identificado el líder.
-- [ ] Revisión de ortografía con ~ispell~ en el buffer
-- [ ] Generación de Archivo PDF ~M-x org-latex-export-to-pdf~
+- [X] Revisión de ortografía con ~ispell~ en el buffer
+- [X] Generación de Archivo PDF ~M-x org-latex-export-to-pdf~
 ** Problemas con la Tarea:
 - Tarea $X_1$ no pudo completarse debido a
 - Tarea $X_2$ no pudo completarse debido a
