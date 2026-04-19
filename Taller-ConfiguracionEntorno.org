@@ -5,8 +5,8 @@
 #+options: tasks:t tex:t timestamp:t title:t toc:nil todo:t |:t
 #+title: Taller de Configuracion de Entorno WSL
 #+date: 2026-04-08
-#+author: COLOQUE SU NOMBRE, COLOQUE SEGUNDO NOMBRE
-#+email: lenin.falconi@epn.edu.ec
+#+author: Danny, Elian
+#+email: danny.lanchimba@epn.edu.ec
 #+language: Espanol
 #+select_tags: export
 #+exclude_tags: noexport
@@ -145,11 +145,11 @@ generar una nueva fila escriba presione la tecla TAB
 
 <Estudiante B>
 #+ATTR_LATEX: :environment longtable :align |p{0.2\linewidth}|p{0.3\linewidth}|p{0.2\linewidth}|p{0.3\linewidth}|
-| *Comando*         | *Descripción*               | *Comando* | *Descripción*                     |
-|-------------------+-----------------------------+-----------+-----------------------------------|
-| ~C-c C-e # latex~ | Insertar template de  latex | ~C-x C-s~ | Guardar los cambios en el archivo |
-|                   |                             |           |                                   |
-|                   |                             |           |                                   |
+| *Comando* | *Descripción*              | *Comando* | *Descripción*                    |
+|-----------+----------------------------+-----------+----------------------------------|
+| ~C-k~     | elimina una linea completa | ~C-a~     | va al inicio de la línea         |
+| ~C-x C-f~ | abre o crea un archivo     | ~C-e~     | va al final de la línea          |
+| ~C-/~     | deshace la última acción  | ~M-f~     | se mueve adelante de una palabra |
 
 <Estudiante C>
 #+ATTR_LATEX: :environment longtable :align |p{0.2\linewidth}|p{0.3\linewidth}|p{0.2\linewidth}|p{0.3\linewidth}|
@@ -191,14 +191,14 @@ Estudiante B:
 |-----------+---------|
 | iteración | Puntaje |
 |-----------+---------|
-|         1 |         |
-|         2 |         |
-|         3 |         |
+|         1 |     140 |
+|         2 |     140 |
+|         3 |     140 |
 |-----------+---------|
 
-#+begin_src org
-[[./estudianteB-game.png]]
-#+end_src
+  [[./images/estudianteB-game.png]] 
+  [[./images/estudianteB-game2.png]]
+  [[./images/estudianteB-game3.png]]
 
 Estudiante C: 
 |-----------+---------|
